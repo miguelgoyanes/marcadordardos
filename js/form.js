@@ -1,29 +1,60 @@
 
 
-function anadirNombre(numeroNombres) {
+function anadirNombre() {
     let contenedorNom = document.querySelector(".contenedor-nom")
-    contenedorNom.innerHTML = `<div class="contenido-nom">
-        <button class="btn-menos" type="button">-</button>
-        <input type="text" name="nick" id="nick${numeroNombres}">
-    </div>`
-    console.log(contenedorNom);
-    numeroNombres += 1
+    // contenedorNom.innerHTML = `<div class="contenido-nom">
+    //     <button class="btn-menos" type="button">-</button>
+    //     <input type="text" name="nick" id="nick${numeroNombres}">
+    // </div>`
+
+    // creamos un nuevo nombre con btn de eliminas
+    let divNombre = document.createElement("div")
+    divNombre.classList.add("contenido-nom")
+    let btnNombre = document.createElement("button")
+    btnNombre.classList.add("btn-menos")
+    btnNombre.type = "button"
+    btnNombre.textContent = "-"
+    let imputNombre = document.createElement("input")
+    imputNombre.type = "text"
+    imputNombre.name = "nick"
+    divNombre.appendChild(btnNombre)
+    divNombre.appendChild(imputNombre)
+    contenedorNom.appendChild(divNombre)
 
 }
 
 function baseNombres() {
-    btnMas = document.getElementById("btn-mas")
+    let btnMas = document.getElementById("btn-mas")
+    let contenedorNom = document.querySelector(".contenedor-nom")
 
-    let numeroNombres = 1
     btnMas.addEventListener("click", () => {
-        anadirNombre(numeroNombres)
+        //comprobamos numero de hijos
+        if (contenedorNom.childNodes.length <= 6) {
+            anadirNombre()
+        } else {
+            let error = document.getElementById("error")
+            error.innerText = "Solo puedes introducir 6 jugadores\nPuedes probar a jugar por equipos"
+    
+        }
+
+        //recorremos todos nombres
+        let btnMenos = document.querySelectorAll(".btn-menos")
+        btnMenos.forEach(btn => {
+            btn.addEventListener("click", e => {
+                //haccedemos al padre del btn menos y lo eliminamos
+                e.target.parentNode.remove(e.target.parentNode)
+            })
+        })
     })
+
+
 }
 
 
 function domCargado(){
     //captura todos los elementos
     baseNombres()
+
 
 }
 
