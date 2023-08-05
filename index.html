@@ -13,22 +13,22 @@
     <!-- FORMULARIO -->
     <main>
         <div id="error"></div>
-        <form action="cricket.html">
+        <form action="cricket.html" id="formJuego">
             <div class="item-form nombres">
                 <label for="nick">Introduce los jugadores</label>
-                <button id="btn-mas" type="button">+</button>
-                <div class="contenedor-nom">
-                </div>
+                <button id="btn-mas" class="btn" type="button">+</button>
+                <div class="contenedor-nom"></div>
             </div>
             <div class="item-form">
                 <label for="juego">Elije el juego</label>
-                    <select name="juego" id="juego">
+                    <select name="juego" id="modalidad-juego">
                         <option value="0">--Por favor elije un juego--</option>
                         <option value="cricket">Cricket</option>
                         <option value="301">301</option>
                         <option value="501">501</option>
                     </select>
             </div>
+            <input type="submit" name="submit" id="submit" class="btn" value="Jugar">
         </form>
     </main>
     

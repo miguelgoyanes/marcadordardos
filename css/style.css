@@ -53,21 +53,22 @@ select{
     margin-top: 10px;
     margin-bottom: 15px;
 }
-#btn-mas {
-    width: 100%;
-    height: 43px;
+.btn {
     font-weight: 200;
     font-size: 24px;
     border: 1px solid #ced4da;
     border-radius: 5px;
 }
+.btn:hover {
+    cursor: pointer;
+}
+#btn-mas {
+    width: 100%;
+    height: 43px;
+}
 .btn-menos {
     width: 43px;
     height: 43px;
-    font-weight: 200;
-    font-size: 24px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
 }
 .contenido-nom {
     display: flex;
