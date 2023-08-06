@@ -1,5 +1,5 @@
 
-
+//crear todo el elemento nombre y meterlo en el contenedor
 function anadirNombre() {
     let contenedorNom = document.querySelector(".contenedor-nom")
 
@@ -20,13 +20,14 @@ function anadirNombre() {
 
 }
 
+//comprobaciones y eventListener para los botones + - 
 function baseNombres() {
     let btnMas = document.getElementById("btn-mas")
     let contenedorNom = document.querySelector(".contenedor-nom")
 
     btnMas.addEventListener("click", () => {
         //comprobamos numero de hijos
-        if (contenedorNom.childNodes.length <= 6) {
+        if (contenedorNom.childNodes.length < 6) {
             anadirNombre()
         } else {
             let error = document.getElementById("error")
@@ -44,13 +45,16 @@ function baseNombres() {
     })
 }
 
-function datosUsuario(listaNombres, modalidadJuego) {
-    sessionStorage.setItem('listaNombres', listaNombres);
-    sessionStorage.setItem('modalidadJuego', modalidadJuego.value);
+//Subir los dados del usuario al sessionStorage
+function datosUsuario(listaNombres) {
+    // al subirlo como array el storage lo convierte a str
+    // asi que vamos a subirlo con un json
+    sessionStorage.setItem('listaNombres', JSON.stringify(listaNombres));
 }
 
+//Comprobar formulario
 function comprobarForm(event) {
-    let listaNombres = []
+    let listaNombres = new Array
     let contenedorNom = document.querySelector(".contenedor-nom")
     let nombres = document.querySelectorAll(".nombre")
     let error = document.getElementById("error")
@@ -69,15 +73,20 @@ function comprobarForm(event) {
                 listaNombres.push(nombre.value)
             }
         })
+        console.log(listaNombres);
     }
     let modalidadJuego = document.getElementById("modalidad-juego")
-    if(modalidadJuego.value == "0"){
+    if(modalidadJuego.value === "0"){
         event.preventDefault();
         error.innerText="Debe seleccionar una modalida de juego"
         return false;
+    } else if (modalidadJuego.value === "cricket") {
+        datosUsuario(listaNombres)
+        let formJuego = document.getElementById("formJuego")
+        formJuego.action = "cricket.html"
+        // event.preventDefault()
+        return true
     }
-    datosUsuario(listaNombres, modalidadJuego)
-    return true
 }
 
 
@@ -86,8 +95,8 @@ function domCargado(){
     baseNombres()
     
     //comprobar formulario
-    let btnSubmit = document.getElementById("formJuego")
-    btnSubmit.addEventListener("submit", comprobarForm)
+    let formJuego = document.getElementById("formJuego")
+    formJuego.addEventListener("submit", comprobarForm)
 
 }
 
