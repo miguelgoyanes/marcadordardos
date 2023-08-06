@@ -15,13 +15,6 @@ function pintarTablero() {
         let objJugador = {
             nombre: element,
             puntos: 0,
-            casilla20: {id: 0, impactos: 0},
-            casilla19: {id: 0, impactos: 0},
-            casilla18: {id: 0, impactos: 0},
-            casilla17: {id: 0, impactos: 0},
-            casilla16: {id: 0, impactos: 0},
-            casilla15: {id: 0, impactos: 0},
-            casillaB: {id: 0, impactos: 0},
         }
         //creando el contedido del div del jugador
         let htmlPorJugador = `<div class="cubo"><p class="nombre-jugadores">${element}</p></div>
@@ -35,7 +28,7 @@ function pintarTablero() {
             } else {
                 NumCasillas = contadorNumCasillas
             }
-            objJugador[`casilla${NumCasillas}`].id = contadorIds
+            objJugador[contadorIds] = {nombre: `casilla${NumCasillas}`, impactos: 0},
             contadorNumCasillas -= 1
             // pintando casillas con id correspondintes
             htmlPorJugador += `<div class="cubo btn-juego"><div id="${contadorIds}"></div></div>`
@@ -51,10 +44,9 @@ function hacerClickable() {
     btnsJurgo.forEach(btnJuego => {
         btnJuego.addEventListener("click", event => {
             for(let obj of listaJugadores) {
-                for(let [key, value] of Object.entries(obj)){
-                    if (value.id == event.target.firstElementChild.id) {
-                        value.impactos += 1
-                    }
+                let numero = event.target.firstElementChild.id
+                if (obj[numero]) {
+                    console.log(obj[numero]);
                 }
 
             }
