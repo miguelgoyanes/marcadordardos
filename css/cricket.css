@@ -7,11 +7,26 @@ p {
     margin: 0;
 }
 
+#contenedor-controles {
+    margin: 30px auto 0px auto;
+}
+.btn {
+    font-weight: 200;
+    font-size: 24px;
+    width: 48%;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+.btn:hover {
+    cursor: pointer;
+}
+
+
+
 #contenedor-tablero{
     display: grid;
     margin: 30px auto 0px auto;
 }
-
 .contenedor-vertical {
     display: flex;
     flex-direction: column;
@@ -26,25 +41,27 @@ p {
     justify-content: center;
     align-items: center;
 }
-.btn-juego:hover {
+.btn-clickable:hover {
     cursor: pointer;
 }
-
-.pto-1 {
-    background-image: url("../img/1.png");
+.fondo-azul {
+    background-color: aqua;
+}
+.pto-0 {
+    background-image: url("../img/0.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+.pto-1 {
+    background-image: url("../img/1.png");
 }
 .pto-2 {
     background-image: url("../img/2.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 .pto-3 {
     background-image: url("../img/3.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+}
+.pto-close {
+    background-image: url("../img/close.png");
 }
