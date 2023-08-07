@@ -1,6 +1,6 @@
 let listaHistorial = []
 let objJugadores = {}
-const listaIdsPuntosCerrados = []
+let listaIdsPuntosCerrados = []
 const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
 
 //PINTAMOS EL TABLERO INICIAL
@@ -255,15 +255,15 @@ function comprobarGanador() {
 
 //GUARDAMOS EN HISTORIAL
 function guardarHistorias() {
-    listaHistorial.push(structuredClone(objJugadores))
+    listaHistorial.push(structuredClone({obj: objJugadores, listaCerrados: listaIdsPuntosCerrados}))
 }
 
 //DESACER LA ACCION ANTERIOR
 function desacerAccion() {
-    console.log(listaHistorial);
     if (listaHistorial.length > 1) {
         listaHistorial.pop()
-        objJugadores = listaHistorial.slice(-1).pop()
+        objJugadores = listaHistorial.slice(-1).pop().obj
+        listaIdsPuntosCerrados = listaHistorial.slice(-1).pop().listaCerrados
     }
 
     pintarColumnaJugando()
