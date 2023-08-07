@@ -1,8 +1,9 @@
-const listaHistorial = []
-const objJugadores = {}
+let listaHistorial = []
+let objJugadores = {}
 const listaIdsPuntosCerrados = []
 const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
 
+//PINTAMOS EL TABLERO INICIAL
 function pintarTablero() {
     let contenedorControles = document.getElementById("contenedor-controles")
     contenedorControles.style.width = listaNombres.length * 150 + "px"
@@ -48,12 +49,14 @@ function pintarTablero() {
         contenedorVertical.innerHTML = htmlPorJugador
     });
 
-
-    //pintamos la primera columna
     objJugadores[1].jugando = true
+    //Guardar en historial
+    guardarHistorias()
+    //pintamos la primera columna
     pintarColumnaJugando()
 }
 
+//CREAMOS LOS EVENTOS CLICABLES DE LOS NOMBRES DEL SIGUIENTE Y DEL DESACER
 function crearClickEleccionAndControls() {
     // creamos click eleccion jugador
     let columnasJugador = document.querySelectorAll(".cubo-nombre")
@@ -65,14 +68,17 @@ function crearClickEleccionAndControls() {
     // creamos click siguiente jugador
     let btnSigiente = document.getElementById("sig")
     btnSigiente.addEventListener("click", clickSiguienteJugador)
-
+    
+    // creamos click desacer accion
+    let btnDesacer = document.getElementById("desacer")
+    btnDesacer.addEventListener("click", desacerAccion)
 }
 
+//GESTIONAMOS EL CLICK EN EL NOMBRE PARA ELEJIR UN JUGADOR
 function clickEleccionJugador(e) {
     for (let keyJugadores in objJugadores) {
         if (e.target.parentNode.id === keyJugadores) {
             objJugadores[keyJugadores].jugando = true
-            console.log(keyJugadores);
         } else {
             objJugadores[keyJugadores].jugando = false
         }
@@ -80,6 +86,7 @@ function clickEleccionJugador(e) {
     pintarColumnaJugando()
 }
 
+//GESTIONAMOS EL CLICK EN SIGUIENTE PARA ELEJIR UN JUGADOR
 function clickSiguienteJugador() {
     let idTrueActual = null
     for (let keyJugadores in objJugadores) {
@@ -93,10 +100,10 @@ function clickSiguienteJugador() {
     } else {
         objJugadores[1].jugando = true
     }
-    console.log(objJugadores);
     pintarColumnaJugando()
 }
 
+//PINTAMOS LA COLUMNA QUE LE TOCA Y HACEMOS CLICKACBLE LOS PUNTOS A PARTIR DEL OBJ
 function pintarColumnaJugando() {
     let columnasJugador = document.querySelectorAll(".cubo-nombre")
     let btnsJuego = document.querySelectorAll(".btn-juego")
@@ -123,6 +130,7 @@ function pintarColumnaJugando() {
     }
 }
 
+//GESTIONAMOS EL CLICK EN LAS PUNTUACIONES
 function clickPuntuacion(e) {
     let idJugador = e.target.id[0]
     let idCasilla = e.target.id[1]
@@ -136,20 +144,32 @@ function clickPuntuacion(e) {
     comprobarCerrado()
     comprobarGanador()
     actualizarTablero()
+    guardarHistorias()
 }
 
+//ACTUALIZAMOS LAS CASILLAS Y LOS PUNTOS
 function actualizarTablero() {
     for (let keyJugadores in objJugadores) {
         for (let keyCasillas in objJugadores[keyJugadores]) {
+            let puntuacion = document.getElementById(`puntuacion${keyJugadores}`)
             let casilla = document.getElementById(`${keyJugadores}${keyCasillas}`)
+            //Limpiar todo para pintar despues
+            if (casilla !== null) {
+                casilla.classList.remove("pto-1", "pto-2", "pto-3", "pto-close")
+            }
+
+            //Pintar casillas y puntos
             if (objJugadores[keyJugadores][keyCasillas]["impactos"] === 1) {
                 casilla.classList.add("pto-1")
+                puntuacion.innerText = 0
             } else if (objJugadores[keyJugadores][keyCasillas]["impactos"] === 2) {
                 casilla.classList.add("pto-2")
+                puntuacion.innerText = 0
             } else if (objJugadores[keyJugadores][keyCasillas]["impactos"] === 3) {
                 casilla.classList.add("pto-3")
+                puntuacion.innerText = 0
             } else if (objJugadores[keyJugadores][keyCasillas]["impactos"] > 3) {
-                let puntuacion = document.getElementById(`puntuacion${keyJugadores}`)
+                casilla.classList.add("pto-3")
                 puntuacion.innerText = objJugadores[keyJugadores]["puntos"]
             }
             if (listaIdsPuntosCerrados.includes(keyCasillas)) {
@@ -157,9 +177,9 @@ function actualizarTablero() {
             }
         }
     }
-    
 }
 
+//ACTUALIZAMOS LAS CASILLAS Y LOS PUNTOS
 function comprobarCerrado() {
     //si no esta cerrado
     let objComprobacionPuntuaciones = {}
@@ -188,6 +208,7 @@ function comprobarCerrado() {
     }
 }
 
+//COMPROBAR SI HAY UN GANADOR Y ELIMINAR CLICKABLES EN ESE CASO
 function comprobarGanador() {
     let jugadorTodoCerrado = []
     let jugadoresEmpate = []
@@ -230,6 +251,26 @@ function comprobarGanador() {
             btnJuego.classList.remove("btn-clickable")
         })
     }
+}
+
+//GUARDAMOS EN HISTORIAL
+function guardarHistorias() {
+    listaHistorial.push(structuredClone(objJugadores))
+}
+
+//DESACER LA ACCION ANTERIOR
+function desacerAccion() {
+    console.log(listaHistorial);
+    if (listaHistorial.length > 1) {
+        listaHistorial.pop()
+        objJugadores = listaHistorial.slice(-1).pop()
+    }
+
+    pintarColumnaJugando()
+    comprobarCerrado()
+    comprobarGanador()
+    actualizarTablero()
+
 }
 
 function domCargado(){
