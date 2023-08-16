@@ -1,4 +1,4 @@
-if (screen.width > 425) {
+if (screen.width <= 425) {
     let listaHistorial = []
     let objJugadores = {}
     let listaIdsPuntosCerrados = []
@@ -60,12 +60,6 @@ if (screen.width > 425) {
 
     //CREAMOS LOS EVENTOS CLICABLES DE LOS NOMBRES DEL SIGUIENTE Y DEL DESHACER
     function crearClickEleccionAndControls() {
-        // creamos click eleccion jugador
-        let columnasJugador = document.querySelectorAll(".cubo-nombre")
-        columnasJugador.forEach(columnaJugador => {
-            columnaJugador.classList.add("btn-clickable")
-            columnaJugador.addEventListener("click", clickEleccionJugador)
-        })
 
         // creamos click siguiente jugador
         let btnSigiente = document.getElementById("sig")
@@ -74,18 +68,6 @@ if (screen.width > 425) {
         // creamos click deshacer accion
         let btnDeshacer = document.getElementById("deshacer")
         btnDeshacer.addEventListener("click", deshacerAccion)
-    }
-
-    //GESTIONAMOS EL CLICK EN EL NOMBRE PARA ELEJIR UN JUGADOR
-    function clickEleccionJugador(e) {
-        for (let keyJugadores in objJugadores) {
-            if (e.target.parentNode.id === keyJugadores) {
-                objJugadores[keyJugadores].jugando = true
-            } else {
-                objJugadores[keyJugadores].jugando = false
-            }
-        }
-        pintarColumnaJugando()
     }
 
     //GESTIONAMOS EL CLICK EN SIGUIENTE PARA ELEJIR UN JUGADOR
@@ -112,9 +94,15 @@ if (screen.width > 425) {
         //Eliminar todo de la columna anterior
         columnasJugador.forEach(columnaJugador => {
             columnaJugador.parentNode.classList.remove("fondo-azul")
+            columnaJugador.parentNode.classList.remove("ocultar")
         })
+        let idJugadorJugando = null
+        let listaMostrar = []
         for (let keyJugadores in objJugadores) {
             if (objJugadores[keyJugadores].jugando) {
+                // guardo la id
+                idJugadorJugando = keyJugadores
+                // Opero
                 let columnaJugador = document.getElementById(keyJugadores)
                 columnaJugador.classList.add("fondo-azul")
 
@@ -128,6 +116,20 @@ if (screen.width > 425) {
                         btnJuego.addEventListener("click", clickPuntuacion)
                     }
                 })
+            } 
+        }
+        // saber que columnas tenemos que mostrar
+        listaMostrar.push(idJugadorJugando)
+        if (Number(idJugadorJugando) + 1 <= listaNombres.length) {
+            listaMostrar.push(String(Number(idJugadorJugando) + 1))
+        } else {
+            listaMostrar.push(1)
+        }
+        // ocultar el resto
+        for (let keyJugadores in objJugadores) {
+            if (!listaMostrar.includes(keyJugadores)) {
+                let columnaJugador = document.getElementById(keyJugadores)
+                columnaJugador.classList.add("ocultar")
             } 
         }
     }

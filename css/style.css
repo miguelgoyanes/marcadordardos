@@ -2,6 +2,28 @@ body{
     background-color: #f5f5f5;
     font-family: 'Poppins', sans-serif;
 }
+/* Navegador */
+nav {
+    font-size: 24px;
+    color: white;
+    background-color: #2C475C;
+    width: 700px;
+    height: 30px;
+    margin: 30px auto 0px auto;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contenedor-element-nav {
+    display: flex;
+    gap: 20px;
+    
+}
+
+
+/*Cueropo*/
 main{
     width: 300px;
     margin: 30px auto 0px auto;

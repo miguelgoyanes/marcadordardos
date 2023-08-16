@@ -21,7 +21,12 @@ p {
     cursor: pointer;
 }
 
-
+#contenedor-ganar {
+    margin: 30px auto 0px auto;
+    text-align: center;
+    font-weight: 400;
+    color: red;
+}
 
 #contenedor-tablero{
     display: grid;
@@ -46,6 +51,9 @@ p {
 }
 .fondo-azul {
     background-color: aqua;
+}
+.ocultar {
+    display: none;
 }
 .pto-0 {
     background-image: url("../img/0.png");
