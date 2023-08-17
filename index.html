@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Marcador de Dardos</title>
@@ -10,11 +13,11 @@
 <body>
     <!-- CABECERA -->
     <nav>
-        <div class="logo">Marcador dardos</div>
+        <div class="logo"></div>
         <div class="contenedor-element-nav">
-            <p>Jugar</p>
-            <p>Como jugar</p>
-            <p>Sobre nosotros</p>
+            <a href="./index.html">Jugar</a>
+            <a href="./comoJugarCricket.html">Como jugar</a>
+            <a>Sobre nosotros</a>
         </div>
     </nav>
     <!-- FORMULARIO -->
@@ -28,12 +31,12 @@
             </div>
             <div class="item-form">
                 <label for="juego">Elije el juego</label>
-                    <select name="juego" id="modalidad-juego">
-                        <option value="0">--Por favor elije un juego--</option>
-                        <option value="cricket">Cricket</option>
-                        <option value="301">301</option>
-                        <option value="501">501</option>
-                    </select>
+                <select name="juego" id="modalidad-juego">
+                    <option value="0">--Por favor elije un juego--</option>
+                    <option value="cricket">Cricket</option>
+                    <option value="301">301</option>
+                    <option value="501">501</option>
+                </select>
             </div>
             <input type="submit" name="submit" id="submit" class="btn" value="Jugar">
         </form>

@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/cricket.css">
-    <title>Document</title>
+    <title>Marcador de Dardos</title>
 </head>
 <body>
     <main id="contenedor-tab-controles">
         <div id="contenedor-controles">
-            <button id="deshacer" class="btn">DESHACER</button>
-            <button id="sig" class="btn">-></button>
+            <div id="deshacer" class="btn">DESHACER</div>
+            <div id="sig" class="btn"><img src="./img/flecha.png" alt="flecha dardo"></div>
         </div>
         <div id="contenedor-ganar"></div>
         <div id="contenedor-tablero">
             <div class="contenedor-vertical">
-                <div class="cubo espacio-vacio"><p>Jugadores</p></div>
-                <div class="cubo"><p>Puntuación</p></div>
+                <div class="cubo espacio-vacio"><p>Player</p></div>
+                <div class="cubo"><p>Ptos</p></div>
                 <div class="cubo"><p>20</p></div>
                 <div class="cubo"><p>19</p></div>
                 <div class="cubo"><p>18</p></div>
@@ -26,9 +31,7 @@
                 <div class="cubo"><p>B</p></div>
             </div>
         </div>
-        
     </main>
-    
 </body>
 <script src="js/cricket.js"></script>
 <script src="js/cricket-movil.js"></script>

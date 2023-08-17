@@ -31,7 +31,7 @@ function baseNombres() {
             anadirNombre()
         } else {
             let error = document.getElementById("error")
-            error.innerText = "Solo puedes introducir 6 jugadores\nPuedes probar a jugar por equipos"
+            error.innerText = "Solo puedes introducir 6 jugadores"
         }
 
         //recorremos todos nombres
@@ -64,10 +64,10 @@ function comprobarForm(event) {
         return false
     } else {
         nombres.forEach(nombre => {
-            if (nombre.value.length === 0) {
+            if (nombre.value.length === 0 || nombre.value.length > 7) {
                 nombre.focus()
                 event.preventDefault()
-                error.innerText = "Debe introducir todos los nombres"
+                error.innerText = "Los nombres deben tener más de 0 caracteres y menor de 7"
                 return false
             } else {
                 listaNombres.push(nombre.value)
