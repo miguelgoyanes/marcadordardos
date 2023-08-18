@@ -8,15 +8,31 @@
     --negro: #000;
 }
 body{
+    background-image: url("../img/dart.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--blanco);
     font-family: 'Poppins', sans-serif;
     font-size: 22px;
 }
 h2, h3, h4, p {
+    font-size: 18px;
     padding: 10px 0px;
     line-height: normal;
 }
-
+h2, h3{
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+p {
+    text-align: justify;
+}
 /* Navegador */
 nav {
     font-size: 22px;
@@ -37,14 +53,11 @@ nav {
 
 
 /*Cueropo*/
-body {
-    background-image: url("../img/dart.jpg");
-    background-size: 100%;
-    background-attachment: fixed;
-    background-position: top;
-    background-repeat: no-repeat;
-}
-.contenedor-texto {
+main {
     width: 800px;
+    background-color: #7E7E7E;
+    padding: 30px;
+    border: 2px solid var(--blanco);
+    border-radius: 15px;
     margin: 10px auto;
 }
