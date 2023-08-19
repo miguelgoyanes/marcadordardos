@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/nav.css">
     <title>Marcador de Dardos</title>
 </head>
+
 <body>
     <!-- CABECERA -->
     <nav>
-        <div class="logo"></div>
+        <div class="logo"><img src="./img/dardo.png" alt=""></div>
         <div class="contenedor-element-nav">
-            <a href="./index.html">Jugar</a>
-            <a href="./comoJugarCricket.html">Como jugar</a>
+            <a href="./seleccionJuego.html">Jugar</a>
+            <a href="./index.html">Como jugar</a>
             <a>Sobre nosotros</a>
         </div>
     </nav>
     <!-- FORMULARIO -->
     <main>
-        <div id="error"></div>
-        <form action="#" id="formJuego">
-            <div class="item-form nombres">
-                <label for="nick">Introduce los jugadores</label>
-                <button id="btn-mas" class="btn" type="button">+</button>
-                <div class="contenedor-nom"></div>
+        <h1>Marcador de Dardos</h1>
+        <div class="contenedor-texto cricket">
+            <h2>Juego de Dardos Cricket</h2>
+            <p>El juego de dardos Cricket es una actividad popular que combina habilidad, precisión y estrategia. En
+                este juego, los jugadores compiten para cerrar números específicos en el tablero de dardos mientras
+                intentan evitar que sus oponentes lo hagan. Con reglas simples y un enfoque en la estrategia, el Cricket
+                es una elección emocionante tanto para jugadores casuales como para competidores serios.</p>
+            <div class="contenedor-btn">
+                <button id="btn-saber-cricket" class="btn btn-saber-mas">Saber más</button>
+                <button id="btn-jugar-cricket" class="btn btn-jugar">Jugar</button>
             </div>
-            <div class="item-form">
-                <label for="juego">Elije el juego</label>
-                <select name="juego" id="modalidad-juego">
-                    <option value="0">--Por favor elije un juego--</option>
-                    <option value="cricket">Cricket</option>
-                    <option value="301">301</option>
-                    <option value="501">501</option>
-                </select>
+        </div>
+        <div class="contenedor-texto 301">
+            <h2>Juego de Dardos 301</h2>
+            <p>El juego de dardos 301 es una actividad apasionante que fusiona la destreza, la precisión y la estrategia
+                en un emocionante desafío. En esta modalidad, los entusiastas de los dardos se lanzan a la competición
+                para alcanzar la cifra exacta de 301 puntos, tejiendo un tapiz de tácticas y maestría en cada
+                lanzamiento.</p>
+            <div class="contenedor-btn">
+                <button id="btn-saber-301" class="btn btn-saber-mas">Saber más</button>
+                <button id="btn-jugar-301" class="btn btn-jugar">Jugar</button>
             </div>
-            <input type="submit" name="submit" id="submit" class="btn" value="Jugar">
-        </form>
+        </div>
     </main>
-    
 </body>
-<script src="js/form.js"></script>
+<script src="./js/index.js"></script>
+
 </html>

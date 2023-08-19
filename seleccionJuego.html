@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/seleccionJuego.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <title>Marcador de Dardos</title>
+</head>
+<body>
+    <!-- CABECERA -->
+    <nav>
+        <div class="logo"><img src="./img/dardo.png" alt=""></div>
+        <div class="contenedor-element-nav">
+            <a href="./seleccionJuego.html">Jugar</a>
+            <a href="./index.html">Como jugar</a>
+            <a>Sobre nosotros</a>
+        </div>
+    </nav>
+    <!-- FORMULARIO -->
+    <main>
+        <div id="error"></div>
+        <form action="#" id="formJuego">
+            <div class="item-form nombres">
+                <label for="nick">Introduce los jugadores</label>
+                <button id="btn-mas" class="btn" type="button">+</button>
+                <div class="contenedor-nom"></div>
+            </div>
+            <div class="item-form">
+                <label for="juego">Elije el juego</label>
+                <select name="juego" id="modalidad-juego">
+                    <option value="0">--Por favor elije un juego--</option>
+                    <option value="cricket">Cricket</option>
+                    <option value="301">301</option>
+                    <option value="501">501</option>
+                    <option value="701">701</option>
+                </select>
+            </div>
+            <input type="submit" name="submit" id="submit" class="btn" value="Jugar">
+        </form>
+    </main>
+    
+</body>
+<script src="js/seleccionJuego.js"></script>
+</html>

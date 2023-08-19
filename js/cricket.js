@@ -301,8 +301,7 @@ if (screen.width > 425) {
     function domCargado(){
         //coger datos usuarios
         pintarTablero()
-        crearClickEleccionAndControls()        
-        console.log("grande");
+        crearClickEleccionAndControls()
     }
 
     //Inicio de carga evento

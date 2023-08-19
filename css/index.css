@@ -1,0 +1,66 @@
+/*User propertis*/
+:root{
+    --verde:#49B069;
+    --blanco:#F5F5F5;
+    --beigue: #307546;
+    --rojo:#F40243;
+    --oscuro:#363940;
+    --negro: #000;
+}
+body{
+    background-image: url("../img/dart-simetrico.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+}
+h1, h2, h3, h4, p {
+    font-size: 18px;
+    padding: 10px 0px;
+    line-height: normal;
+}
+h1, h2, h3{
+    font-weight: 500;
+}
+h2 {
+    font-size: 24px;
+}
+h1 {
+    font-size: 38px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+p {
+    text-align: justify;
+}
+/*Cueropo*/
+main {
+    width: 800px;
+    padding: 30px;
+    margin: 10px auto;
+}
+
+.contenedor-btn {
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+}
+.btn {
+    font-weight: 200;
+    font-size: 24px;
+    color: var(--blanco);
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-saber-mas {
+    background-color: var(--rojo);
+}
+.btn-jugar {
+    background-color: var(--verde);
+}

@@ -2,9 +2,9 @@
 :root{
     --verde:#49B069;
     --blanco:#F5F5F5;
-    --beigue: #F6CFA1;
     --rojo:#F40243;
     --oscuro:#363940;
+    --claro: #7E7E7E;
 }
 body{
     background-color: var(--oscuro);
@@ -15,36 +15,38 @@ body{
 p {
     margin: 0;
 }
-
+/* CONTROLES */
 #contenedor-controles {
     margin: 30px auto 0px auto;
     display: flex;
     justify-content: space-around;
 }
 .btn {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 28px;
-    color: var(--verde);
+    background-color: var(--verde);
+    color: var(--blanco);
+    height: 50px;
     width: 200px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.btn:hover {
     cursor: pointer;
+    user-select: none
 }
 #sig img {
-    width: 100px;
+    width: 70px;
+    user-select: none
 }
-
+/* GANAR */
 #contenedor-ganar {
     margin: 30px auto 0px auto;
     text-align: center;
     font-weight: 400;
     color: var(--rojo);
 }
-
+/* TABLERO */
 #contenedor-tablero{
     display: grid;
     margin: 30px auto 0px auto;
@@ -62,6 +64,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none
 }
 .btn-clickable:hover {
     cursor: pointer;
