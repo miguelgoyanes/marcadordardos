@@ -1,11 +1,4 @@
-/*User propertis*/
-:root{
-    --verde:#49B069;
-    --blanco:#F5F5F5;
-    --rojo:#F40243;
-    --oscuro:#363940;
-    --claro: #7E7E7E;
-}
+
 body{
     /* background-color: var(--oscuro); */
     background-image: url("../img/dart-simetrico.jpg");
