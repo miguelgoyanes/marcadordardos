@@ -11,6 +11,11 @@ if (screen.width > 425) {
         let contenedorTablero = document.getElementById("contenedor-tablero")
         contenedorTablero.style.width = listaNombres.length * 150 + "px"
         contenedorTablero.style.gridTemplateColumns = `repeat(${listaNombres.length + 1}, 1fr)`
+        //poner tamaño deshacer correcto
+        if (listaNombres.length >= 3) {
+            let botonDeshacer = document.querySelector(".btn")
+            botonDeshacer.style.fontSize = "28px"
+        }
         //pintar columnas
         let idsJugador = 1
         listaNombres.forEach(element => {

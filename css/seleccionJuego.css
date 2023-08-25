@@ -22,7 +22,7 @@ body{
         background-image: url("../img/fondo-dardos-768.jpg");
     }
 }
-@media(max-width: 1024px) {
+@media(max-width: 768px) {
     body {
         background-image: none;
         background-color: var(--oscuro);

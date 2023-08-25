@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 const abrirMenu = () => {
     navegacion.classList.remove('ocultar-nav');
     CrearBotonCerrar();
-    CrearElementosDesplegables()
+    crearElementosDesplegables()
 }
 
 const CrearBotonCerrar = () => {
@@ -22,29 +22,51 @@ const CrearBotonCerrar = () => {
     cerrarMenu(btnCerrar);
 }
 
-const CrearElementosDesplegables = () =>{
+const crearElementosDesplegables = () =>{
     let tamañoPantalla =  window.innerWidth / window.devicePixelRatio
     if (tamañoPantalla <= "768") {
         let elementosMenuDesplegable = document.querySelectorAll(".element-menu-desplegable")
         elementosMenuDesplegable.forEach(elemento => {
             elemento.nextElementSibling.classList.add("ocultar-nav")
+            console.log(elemento);
             elemento.addEventListener("click", () => {
-                elemento.nextElementSibling.classList.remove("ocultar-nav")
+                funcionamientoDesplegable(elemento)
             })
         })
         
     }
 }
 
+const funcionamientoDesplegable = (elemento) => {
+    console.log(elemento);
+    if (elemento.nextElementSibling.classList.contains('ocultar-nav')) {
+        elemento.nextElementSibling.classList.remove("ocultar-nav")
+    } else {
+        elemento.nextElementSibling.classList.add("ocultar-nav")
+    }
+}
+
+const eliminamosElementosDesplegables = () =>{
+    let elementosMenuDesplegable = document.querySelectorAll(".element-menu-desplegable")
+    elementosMenuDesplegable.forEach(elemento => {
+        elemento.removeEventListener("click", () => {
+            funcionamientoDesplegable(elemento)
+        })
+    })
+}
+
 const cerrarMenu = (boton) => {
     boton.addEventListener('click',()=>{
         navegacion.classList.add('ocultar-nav');
         boton.remove();
+        eliminamosElementosDesplegables()
     })
     let elementosMenu = document.querySelectorAll(".element-menu")
     elementosMenu.forEach(elemento => {
         elemento.addEventListener("click", () => {
             navegacion.classList.add('ocultar-nav');
+            boton.remove();
+            eliminamosElementosDesplegables()
         })
     })
 }

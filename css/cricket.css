@@ -1,11 +1,4 @@
-/*User propertis*/
-:root{
-    --verde:#49B069;
-    --blanco:#F5F5F5;
-    --rojo:#F40243;
-    --oscuro:#363940;
-    --claro: #7E7E7E;
-}
+
 body{
     background-color: var(--oscuro);
     color: var(--blanco);
@@ -20,10 +13,11 @@ p {
     margin: 30px auto 0px auto;
     display: flex;
     justify-content: space-around;
+    gap: 20px;
 }
 .btn {
     font-weight: 600;
-    font-size: 28px;
+    font-size: 24px;
     background-color: var(--verde);
     color: var(--blanco);
     height: 50px;
@@ -60,11 +54,18 @@ p {
 .cubo {
     height: 60px;
     width: 60px;
-    margin: 5px 20px ;
+    margin: 5px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none
+}
+@media(max-width: 425px) {
+    .cubo {
+        height: 50px;
+        width: 60px;
+        margin: 5px 20px;
+    }
 }
 .btn-clickable:hover {
     cursor: pointer;

@@ -7,9 +7,9 @@ if (screen.width <= 425) {
     //PINTAMOS EL TABLERO INICIAL
     function pintarTablero() {
         let contenedorControles = document.getElementById("contenedor-controles")
-        contenedorControles.style.width = 350 + "px"
+        contenedorControles.style.width = 320 + "px"
         let contenedorTablero = document.getElementById("contenedor-tablero")
-        contenedorTablero.style.width = 350 + "px"
+        contenedorTablero.style.width = 320 + "px"
         contenedorTablero.style.gridTemplateColumns = `repeat(3, 1fr)`
         //pintar columnas
         let idsJugador = 1

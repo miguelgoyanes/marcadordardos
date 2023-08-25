@@ -88,7 +88,7 @@ function comprobarForm(event) {
     } else if (modalidadJuego.value === "301" || modalidadJuego.value === "501" || modalidadJuego.value === "701") {
         datosUsuario(listaNombres, modalidadJuego.value)
         let formJuego = document.getElementById("formJuego")
-        formJuego.action = "501.html"
+        formJuego.action = "juego_01.html"
         return true
     }
 }

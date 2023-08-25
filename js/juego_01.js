@@ -98,16 +98,16 @@ function clickTeclaPto(e) {
             let restaPuntos = objJugadores[keyJugadores].puntos - valorTecla
             if (restaPuntos > 0) {
                 objJugadores[keyJugadores].puntos = restaPuntos
+                guardarHistorial()
             } else if (restaPuntos == 0) {
                 objJugadores[keyJugadores].puntos = restaPuntos
                 objJugadores[keyJugadores].ganador = true
+                guardarHistorial()
             }
         }
     }
 
-
     actualizarTablero()
-    guardarHistorial()
 }
 
 

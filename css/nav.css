@@ -16,7 +16,7 @@
     }
 }
 /* movil y tablet*/
-@media(max-width: 1023px) {
+@media(max-width: 1024px) {
     /*barra navegacion*/
     nav {
         font-size: 22px;
@@ -87,23 +87,28 @@
     }
 }
 
+/* tablet*/
 @media(max-width: 768px) {
     .menu-horizontal {
         list-style: none;
         display: block;
         user-select: none;
         padding: 50px;
-    }
-    .menu-horizontal {
         margin-top: 0;
     }
     .element-menu {
         text-align: left;
     }
 }
+/* movil*/
+@media(max-width: 425px) {
+    nav img {
+        width: 150px;
+    }
+}
 
 /* pc */
-@media(min-width: 1024px) {
+@media(min-width: 1025px) {
     nav {
         font-size: 22px;
         font-weight: 500;
