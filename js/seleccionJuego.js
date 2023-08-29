@@ -49,8 +49,8 @@ function baseNombres() {
 function datosUsuario(listaNombres, juego01) {
     // al subirlo como array el storage lo convierte a str
     // asi que vamos a subirlo con un json
-    sessionStorage.setItem('listaNombres', JSON.stringify(listaNombres));
-    sessionStorage.setItem('juego_01', juego01)
+    localStorage.setItem('listaNombres', JSON.stringify(listaNombres));
+    localStorage.setItem('juego_01', juego01)
 }
 
 //Comprobar formulario

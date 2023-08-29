@@ -1,14 +1,6 @@
-/*User propertis*/
-:root{
-    --verde:#49B069;
-    --blanco:#F5F5F5;
-    --beigue: #307546;
-    --rojo:#F40243;
-    --oscuro:#363940;
-    --negro: #000;
-}
+/*PC*/
 body{
-    background-image: url("../img/dart-simetrico.jpg");
+    background-image: url("../img/fondo-dardos-simetrico-1440.jpg");
     background-size: 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -16,19 +8,18 @@ body{
     font-family: 'Poppins', sans-serif;
     font-size: 22px;
 }
-h1, h2, h3, h4, p {
+h2, h3, h4, p {
     font-size: 18px;
     padding: 10px 0px;
     line-height: normal;
 }
-h1, h2, h3{
-    font-weight: 500;
-}
-h2 {
+h2, h3{
     font-size: 24px;
+    font-weight: 500;
+    text-align: center;
 }
 h1 {
-    font-size: 38px;
+    font-size: 36px;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -36,31 +27,108 @@ p {
     text-align: justify;
 }
 /*Cueropo*/
-main {
+.contenedor-descripcion {
     width: 800px;
-    padding: 30px;
-    margin: 10px auto;
+    padding: 30px 20px;
+    margin: 50px auto 0px auto;
+    border-radius: 15px;
 }
-
-.contenedor-btn {
+.contenedor-jugar {
+    padding: 30px 20px;
+    margin: 20px auto 0px auto;
+    border-radius: 15px;
+    /* background-color: var(--oscuro); */
     display: flex;
-    justify-content: right;
-    gap: 20px;
+    justify-content: center;
 }
 .btn {
+    width: 300px;
     font-weight: 200;
-    font-size: 24px;
-    color: var(--blanco);
-    width: 150px;
-    height: 50px;
-    margin-top: 10px;
+    padding: 15px;
     border: 0px;
-    border-radius: 5px;
+    color: var(--blanco);
+    border-radius: 20px;
     cursor: pointer;
 }
-.btn-saber-mas {
-    background-color: var(--rojo);
+.contenido-instrucciones {
+    width: 800px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 .btn-jugar {
+    font-size: 40px;
     background-color: var(--verde);
+}
+.btn-instrucciones {
+    width: 100%;
+    font-size: 35px;
+    background-color: var(--oscuro);
+}
+
+/*PC mediano*/
+@media(max-width: 1440px) {
+    body {
+        background-image: url("../img/fondo-dardos-simetrico-1024.jpg");
+    }
+}
+/*PC pequeño*/
+@media(max-width: 1024px) {
+    body {
+        background-image: none;
+        background-color: var(--claro);
+    }
+    .contenedor-descripcion  {
+        width: calc(100% - 140px);
+        padding: 70px;
+        margin: 0;
+    }
+    .contenido-instrucciones {
+        width: calc(100% - 140px);
+    }
+}
+/*tablet*/
+@media(max-width: 768px) {
+    .contenedor-descripcion  {
+        width: calc(100% - 100px);
+        padding: 50px;
+    }
+    .contenido-instrucciones {
+        width: calc(100% - 100px);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/*movil*/
+@media(max-width: 425px) {
+    .contenedor-descripcion  {
+        width: calc(100% - 60px);
+        padding: 30px;
+        margin: 0px;
+    }
+    .contenedor-jugar {
+        margin: 0px auto 0px auto;
+        padding: 10px 20px;
+    }
+    .contenido-instrucciones {
+        width: calc(100% - 60px);
+        grid-template-columns: repeat(1, 1fr);
+    }
+    h2, h3{
+        font-size: 22px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+}
+/* movil pequeño */
+@media(max-width: 375px) {
+    .contenedor-descripcion {
+        padding: 30px 0;
+        margin: 0px auto 0px auto;
+    }
+    .btn-jugar {
+        width: 260px;
+        padding: 10px 20px;
+    }
 }

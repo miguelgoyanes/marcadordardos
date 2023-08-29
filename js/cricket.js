@@ -2,7 +2,7 @@ if (screen.width > 425) {
     let listaHistorial = []
     let objJugadores = {}
     let listaIdsPuntosCerrados = []
-    const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
+    const listaNombres = JSON.parse(localStorage.getItem('listaNombres'))
 
     //PINTAMOS EL TABLERO INICIAL
     function pintarTablero() {

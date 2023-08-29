@@ -1,10 +1,10 @@
 /*User propertis*/
 :root{
-    --verde:#49B069;
-    --blanco:#F5F5F5;
-    --rojo:#F40243;
     --oscuro:#363940;
     --claro: #7E7E7E;
+    --blanco:#F5F5F5;
+    --verde:#49B069;
+    --rojo:#F40243;
 }
 /*Navegador*/
 @keyframes desplazamiento{      /*animacion desplazamiento de derecha a izquieda*/
@@ -137,7 +137,7 @@
     }
     .menu-horizontal > li > a {
         display: block;
-        padding: 15px 20px;
+        padding: 15px;
         color: var(--oscuro);
         text-decoration: none;
     }
@@ -150,7 +150,6 @@
         list-style: none;
         width: 200px;
         border-radius: 15px;
-        /* background-color: rgba(245, 245, 245, .7); */
         background-color: var(--blanco);
     }
     .menu-horizontal li:hover .menu-vertical {

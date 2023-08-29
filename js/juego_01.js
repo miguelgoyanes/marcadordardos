@@ -1,8 +1,8 @@
 let listaHistorial = []
 let objJugadores = {}
 let listaIdsPuntosCerrados = []
-const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
-let puntosJuego = sessionStorage.getItem('juego_01')
+const listaNombres = JSON.parse(localStorage.getItem('listaNombres'))
+let puntosJuego = localStorage.getItem('juego_01')
 
 //PINTAMOS EL TABLERO INICIAL
 function pintarTablero() {

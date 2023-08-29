@@ -1,0 +1,75 @@
+/*PC*/
+body{
+    background-image: url("../img/fondo-dardos-simetrico-1440.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+}
+h2, h3, h4, p {
+    font-size: 18px;
+    padding: 10px 0px;
+    line-height: normal;
+}
+h2, h3{
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+}
+h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+p {
+    text-align: justify;
+}
+/*Cueropo*/
+main {
+    width: 800px;
+    padding: 30px;
+    margin: 10px auto;
+}
+img {
+    width: 100%;
+}
+
+/*PC mediano*/
+@media(max-width: 1440px) {
+    body {
+        background-image: url("../img/fondo-dardos-simetrico-1024.jpg");
+    }
+}
+/*PC pequeño*/
+@media(max-width: 1024px) {
+    body {
+        background-image: none;
+        background-color: var(--claro);
+    }
+    main {
+        width: calc(100% - 140px);
+        padding: 70px;
+        margin: 0;
+    }
+}
+/*tablet*/
+@media(max-width: 768px) {
+    main {
+        width: calc(100% - 100px);
+        padding: 50px;
+    }
+}
+/*movil*/
+@media(max-width: 425px) {
+    main {
+        width: calc(100% - 60px);
+        padding: 30px;
+    }
+    h2, h3{
+        font-size: 22px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+}
