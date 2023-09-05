@@ -1,9 +1,10 @@
-if (screen.width > 425) {
-    let listaHistorial = []
-    let objJugadores = {}
-    let listaIdsPuntosCerrados = []
-    const listaNombres = JSON.parse(localStorage.getItem('listaNombres'))
+//SE DECLARAN LAS VARIABLES GLOBALES PARA LOS DOS ARCHIVOS MOVIL Y PC
+let listaHistorial = []
+let objJugadores = {}
+let listaIdsPuntosCerrados = []
+const listaNombres = JSON.parse(localStorage.getItem('listaNombres'))
 
+if (screen.width > 425) {
     //PINTAMOS EL TABLERO INICIAL
     function pintarTablero() {
         let contenedorControles = document.getElementById("contenedor-controles")

@@ -1,27 +1,40 @@
-
-//crear todo el elemento nombre y meterlo en el contenedor
-function anadirNombre() {
-    let contenedorNom = document.querySelector(".contenedor-nom")
-
-    // creamos un nuevo nombre con btn de eliminas
-    let divNombre = document.createElement("div")
-    divNombre.classList.add("contenido-nom")
-    let btnNombre = document.createElement("button")
-    btnNombre.classList.add("btn-menos", "btn")
-    btnNombre.type = "button"
-    btnNombre.textContent = "-"
-    let imputNombre = document.createElement("input")
-    imputNombre.type = "text"
-    imputNombre.name = "nick"
-    imputNombre.classList.add("nombre")
-    divNombre.appendChild(btnNombre)
-    divNombre.appendChild(imputNombre)
-    contenedorNom.appendChild(divNombre)
-
+function existenNombres() {
+    const listaNombres = JSON.parse(localStorage.getItem('listaNombres'))
+    if (listaNombres !== null) {
+        listaNombres.forEach(nombre => {
+            let contenedorNom = document.querySelector(".contenedor-nom")
+            //comprobamos numero de hijos
+            if (contenedorNom.childNodes.length < 6) {
+                // creamos un nuevo nombre con btn de eliminas
+                let divNombre = document.createElement("div")
+                divNombre.classList.add("contenido-nom")
+                let btnNombre = document.createElement("button")
+                btnNombre.classList.add("btn-menos", "btn")
+                btnNombre.type = "button"
+                btnNombre.textContent = "-"
+                let imputNombre = document.createElement("input")
+                imputNombre.type = "text"
+                imputNombre.name = "nick"
+                imputNombre.value = nombre
+                imputNombre.classList.add("nombre")
+                divNombre.appendChild(btnNombre)
+                divNombre.appendChild(imputNombre)
+                contenedorNom.appendChild(divNombre)
+            }
+        })
+        //recorremos todos nombres
+        let btnMenos = document.querySelectorAll(".btn-menos")
+        btnMenos.forEach(btn => {
+            btn.addEventListener("click", e => {
+                //haccedemos al padre del btn menos y lo eliminamos
+                e.target.parentNode.remove(e.target.parentNode)
+            })
+        })
+    }
 }
 
 //comprobaciones y eventListener para los botones + - 
-function baseNombres() {
+function baseAnadirNombres() {
     let btnMas = document.getElementById("btn-mas")
     let contenedorNom = document.querySelector(".contenedor-nom")
 
@@ -45,6 +58,27 @@ function baseNombres() {
     })
 }
 
+
+//crear todo el elemento nombre y meterlo en el contenedor
+function anadirNombre() {
+    let contenedorNom = document.querySelector(".contenedor-nom")
+
+    // creamos un nuevo nombre con btn de eliminas
+    let divNombre = document.createElement("div")
+    divNombre.classList.add("contenido-nom")
+    let btnNombre = document.createElement("button")
+    btnNombre.classList.add("btn-menos", "btn")
+    btnNombre.type = "button"
+    btnNombre.textContent = "-"
+    let imputNombre = document.createElement("input")
+    imputNombre.type = "text"
+    imputNombre.name = "nick"
+    imputNombre.classList.add("nombre")
+    divNombre.appendChild(btnNombre)
+    divNombre.appendChild(imputNombre)
+    contenedorNom.appendChild(divNombre)
+
+}
 //Subir los dados del usuario al sessionStorage
 function datosUsuario(listaNombres, juego01) {
     // al subirlo como array el storage lo convierte a str
@@ -95,8 +129,10 @@ function comprobarForm(event) {
 
 
 function domCargado(){
+    //comprobar si existe lista nombres
+    existenNombres()
     //captura todos los elementos
-    baseNombres()
+    baseAnadirNombres()
     
     //comprobar formulario
     let formJuego = document.getElementById("formJuego")
