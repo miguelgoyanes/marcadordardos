@@ -1,5 +1,6 @@
 /*PC*/
 body{
+    background-color: var(--claro);
     background-image: url("../img/fondo-dardos-simetrico-1440.jpg");
     background-size: 100%;
     background-attachment: fixed;
@@ -13,13 +14,24 @@ h2, h3, h4, p {
     padding: 10px 0px;
     line-height: normal;
 }
-h2, h3{
-    font-size: 24px;
+h4 {
+    font-size: 22px;
     font-weight: 500;
+}
+h3{
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+}
+h2{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
     text-align: center;
 }
 h1 {
     font-size: 36px;
+    font-weight: 500;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -114,11 +126,14 @@ p {
         width: calc(100% - 60px);
         grid-template-columns: repeat(1, 1fr);
     }
-    h2, h3{
+    h4 {
         font-size: 22px;
     }
-    h2 {
+    h2, h3{
         font-size: 24px;
+    }
+    h2 {
+        font-size: 26px;
     }
 }
 /* movil pequeño */

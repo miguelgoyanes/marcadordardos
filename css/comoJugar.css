@@ -1,5 +1,6 @@
 /*PC*/
 body{
+    background-color: var(--claro);
     background-image: url("../img/fondo-dardos-simetrico-1440.jpg");
     background-size: 100%;
     background-attachment: fixed;
