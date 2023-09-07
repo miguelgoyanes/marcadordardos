@@ -1,5 +1,5 @@
 function existenNombres() {
-    const listaNombres = JSON.parse(localStorage.getItem('listaNombres'))
+    const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
     if (listaNombres !== null) {
         listaNombres.forEach(nombre => {
             let contenedorNom = document.querySelector(".contenedor-nom")
@@ -83,8 +83,8 @@ function anadirNombre() {
 function datosUsuario(listaNombres, juego01) {
     // al subirlo como array el storage lo convierte a str
     // asi que vamos a subirlo con un json
-    localStorage.setItem('listaNombres', JSON.stringify(listaNombres));
-    localStorage.setItem('juego_01', juego01)
+    sessionStorage.setItem('listaNombres', JSON.stringify(listaNombres));
+    sessionStorage.setItem('juego_01', juego01)
 }
 
 //Comprobar formulario
