@@ -8,8 +8,8 @@ const importarNavegador = () => {
         `<div class="logo"><a href="index.html"><img src="./img/dardo.png" alt="logo marcador dardos"></a></div>
         <div class="contenedor-navegacion ocultar-nav">
             <ul class="menu-horizontal">
-                <li><a class="element-menu" href="./index.html">Home</a></li>
-                <li><a class="element-menu" href="./seleccionJuego.html">Jugar</a></li>
+                <li><a class="element-menu" href="index.html">Home</a></li>
+                <li><a class="element-menu" href="seleccionJuego.html">Jugar</a></li>
                 <li>
                     <a class="element-menu-desplegable" href="#">Como jugar <i
                             class="fa-solid fa-angle-down fa-xs"></i></a>
@@ -24,11 +24,10 @@ const importarNavegador = () => {
                     <a class="element-menu-desplegable" href="#">Ayuda<i
                             class="fa-solid fa-angle-down fa-xs"></i></a>
                     <ul class="menu-vertical">
-                        <li><a class="element-menu" href="comoJugarCricket.html">Equipamiento</a></li>
-                        <li><a class="element-menu" href="comoJugar301.html">Técnicas y Consejos</a></li>
-                        <li><a class="element-menu" href="comoJugar501.html">Entrenamiento</a></li>
-                        <li><a class="element-menu" href="comoJugar701.html">Curiosidades</a></li>
-                        <li><a class="element-menu" href="comoJugar701.html">Preguntas Frecuentes</a></li>
+                        <li><a class="element-menu" href="equipamiento.html">Equipamiento</a></li>
+                        <li><a class="element-menu" href="tecnicasEntrenamiento.html">Técnicas y Entrenamiento</a></li>
+                        <li><a class="element-menu" href="curiosidades.html">Curiosidades</a></li>
+                        <li><a class="element-menu" href="index.html#preguntas-frecuentes">FQs</a></li>
                     </ul>
                 </li>
             </ul>
@@ -79,7 +78,6 @@ const crearElementosDesplegables = () =>{
         let elementosMenuDesplegable = document.querySelectorAll(".element-menu-desplegable")
         elementosMenuDesplegable.forEach(elemento => {
             elemento.nextElementSibling.classList.add("ocultar-nav")
-            console.log(elemento);
             elemento.addEventListener("click", () => {
                 funcionamientoDesplegable(elemento)
             })
@@ -89,7 +87,6 @@ const crearElementosDesplegables = () =>{
 }
 
 const funcionamientoDesplegable = (elemento) => {
-    console.log(elemento);
     if (elemento.nextElementSibling.classList.contains('ocultar-nav')) {
         elemento.nextElementSibling.classList.remove("ocultar-nav")
     } else {

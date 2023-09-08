@@ -75,7 +75,7 @@ p {
     width: 760px;
     padding: 20px;
     border-radius: 15px;
-    margin: 0px auto 0px auto;
+    margin: 0px auto 200px auto;
     background-color: var(--oscuro);
     display: grid;
     grid-template-columns: repeat(7, 1fr);
