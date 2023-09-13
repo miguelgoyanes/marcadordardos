@@ -30,7 +30,6 @@ function pintarTablero() {
     })
 
     objJugadores[1].jugando = true
-    console.log(objJugadores);
     // //Guardar en historial
     guardarHistorial()
     // //pintamos la primera columna
@@ -69,6 +68,8 @@ function clickSiguienteJugador() {
         objJugadores[1].jugando = true
     }
     pintarJugadorJugando()
+    //Guardar en historial
+    guardarHistorial()
 }
 
 //PINTAMOS LA COLUMNA QUE LE TOCA Y HACEMOS CLICKACBLE LOS PUNTOS A PARTIR DEL OBJ

@@ -398,7 +398,7 @@ function deshacerAccion() {
         objJugadores = structuredClone(listaHistorial.slice(-1).pop().obj)
         listaIdsJugadoresVivos = structuredClone(listaHistorial.slice(-1).pop().listaJugadoresVivos)
     }
-    console.log(listaHistorial);
+    
     actualizarTableroJ()
 }
 

@@ -92,6 +92,8 @@ if (screen.width > 425) {
             }
         }
         pintarColumnaJugando()
+        //Guardar en historial
+        guardarHistorias()
     }
 
     //GESTIONAMOS EL CLICK EN SIGUIENTE PARA ELEJIR UN JUGADOR
@@ -109,6 +111,8 @@ if (screen.width > 425) {
             objJugadores[1].jugando = true
         }
         pintarColumnaJugando()
+        //Guardar en historial
+        guardarHistorias()
     }
 
     //PINTAMOS LA COLUMNA QUE LE TOCA Y HACEMOS CLICKACBLE LOS PUNTOS A PARTIR DEL OBJ

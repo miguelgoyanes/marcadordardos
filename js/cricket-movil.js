@@ -55,7 +55,6 @@ if (screen.width <= 425) {
 
     //CREAMOS LOS EVENTOS CLICABLES DE LOS NOMBRES DEL SIGUIENTE Y DEL DESHACER
     function crearClickEleccionAndControls() {
-
         // creamos click siguiente jugador
         let btnSigiente = document.getElementById("sig")
         btnSigiente.addEventListener("click", clickSiguienteJugador)
@@ -80,6 +79,8 @@ if (screen.width <= 425) {
             objJugadores[1].jugando = true
         }
         pintarColumnaJugando()
+        //Guardar en historial
+        guardarHistorias()
     }
 
     //PINTAMOS LA COLUMNA QUE LE TOCA Y HACEMOS CLICKACBLE LOS PUNTOS A PARTIR DEL OBJ
