@@ -44,14 +44,16 @@ const importarNavegador = () => {
 
 const importarFooter = () => {
     const footer = document.getElementById("footer")
-    let contenidoFooter = 
-        `<div>
-            <a href="sobreNosotros.html">Contactanos</a>
-        </div>
-        <div>
-            <a href="politicaPrivacidad.html">Politica de privacidad</a>
-        </div>`
+    if (footer !== null) {
+        let contenidoFooter = 
+            `<div>
+                <a href="sobreNosotros.html">Contactanos</a>
+            </div>
+            <div>
+                <a href="politicaPrivacidad.html">Politica de privacidad</a>
+            </div>`
         footer.innerHTML = contenidoFooter
+    }
 } 
 
 const abrirMenu = () => {

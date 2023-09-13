@@ -1,0 +1,179 @@
+body{
+    /* background-color: var(--oscuro); */
+    background-image: url("../img/fondo-dardos-simetrico-1440.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+}
+p {
+    font-size: 24px;
+    padding: 2px 0px;
+    margin: 0;
+}
+
+/* CONTROLES */
+#contenedor-controles {
+    width: 540px;
+    margin: 30px auto 0px auto;
+    display: flex;
+    justify-content: space-around;
+}
+.btn {
+    font-weight: 600;
+    font-size: 28px;
+    background-color: var(--verde);
+    color: var(--blanco);
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none
+}
+#sig img {
+    width: 70px;
+    user-select: none
+}
+/* GANAR */
+#contenedor-ganar {
+    margin: 30px auto 0px auto;
+    text-align: center;
+    font-weight: 400;
+    color: var(--rojo);
+}
+/* NUMEROS */
+.contenedor-numeros {
+    width: 540px;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 0px auto 200px auto;
+    background-color: var(--oscuro);
+    display: grid;
+    gap: 10px;
+}
+.casilla {
+    height: 120px;
+    padding: 5px;
+    border-radius: 15px;
+    user-select: none
+}
+#hacer-killer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tecla-clickable {
+    cursor: pointer;
+}
+.killer-clickable {
+    cursor: pointer;
+}
+.tecla-gris {
+    background-color: var(--claro);
+}
+.tecla-verde {
+    background-color: var(--verde);
+}
+.tecla-azul {
+    background-color: var(--azul);
+}
+.tecla-roja {
+    background-color: var(--rojo);
+}
+.ocultar {
+    display: none;
+}
+.jugador-ganador {
+    padding: 40px;
+}
+.jugador-ganador p{
+    padding: 10px;
+    text-align: center;
+}
+.jugador-ganador div {
+    margin-top: 20px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*PC mediano*/
+@media(max-width: 1440px) {
+    body {
+        background-image: url("../img/fondo-dardos-simetrico-1024.jpg");
+    }
+}
+
+/*PC pequeño*/
+@media(max-width: 1024px) {
+    body {
+        background-image: none;
+        background-color: var(--claro);
+    }
+}
+/*tablet*/
+@media(max-width: 768px) {
+    /* CONTROLES */
+    #contenedor-controles {
+        width: 80%;
+        margin: 10px auto 0px auto;
+        gap: 20px;
+    }
+    /*TABLERO*/
+    #contenedor-tablero {
+        display: flex;
+        justify-content: center;
+    }
+    .contenido-tablero {
+        width: 100%;
+    }
+    /* NUMEROS */
+    .contenedor-numeros {
+        width: 80%;
+        padding: 20px;
+        gap: 10px;
+    }
+    .contenedor-numeros div {
+        border-radius: 10px;
+    }
+}
+/*movil L*/
+@media(max-width: 425px) {
+    /* CONTROLES */
+    .btn {
+        font-size: 22px;
+    }
+    #contenedor-controles {
+        width: 90%;
+    }
+    /* NUMEROS */
+    .contenedor-numeros {
+        width: 90%;
+        padding: 10px;
+    }
+    .contenedor-numeros div {
+        height: 100px;
+    }
+    p {
+        font-size: 18px;
+    }
+    .jugador-ganador > p {
+        font-size: 28px;
+        padding-top: 30px;
+    }
+    .jugador-ganador p{
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+    }
+    .jugador-ganador div {
+        height: auto;
+        font-size: 24px;
+        display: block;
+    }
+}

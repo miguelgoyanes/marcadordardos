@@ -301,7 +301,6 @@ if (screen.width > 425) {
         comprobarCerrado()
         comprobarGanador()
         actualizarTablero()
-
     }
 
     function domCargado(){

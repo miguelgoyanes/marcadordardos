@@ -1,6 +1,5 @@
 let listaHistorial = []
 let objJugadores = {}
-let listaIdsPuntosCerrados = []
 const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
 let puntosJuego = sessionStorage.getItem('juego_01')
 
@@ -150,7 +149,7 @@ function actualizarTablero() {
 
 //GUARDAMOS EN HISTORIAL
 function guardarHistorial() {
-    listaHistorial.push(structuredClone({obj: objJugadores, listaCerrados: listaIdsPuntosCerrados}))
+    listaHistorial.push(structuredClone({obj: objJugadores}))
 }
 
 
@@ -158,8 +157,7 @@ function guardarHistorial() {
 function deshacerAccion() {
     if (listaHistorial.length > 1) {
         listaHistorial.pop()
-        objJugadores = structuredClone(listaHistorial.slice(-1).pop().obj)      //importante usar el estructure clone para que la referencia del obj sea diferente a la referencia de la lista
-        listaIdsPuntosCerrados = structuredClone(listaHistorial.slice(-1).pop().listaCerrados)
+        objJugadores = structuredClone(listaHistorial.slice(-1).pop().obj)
     }
 
     pintarJugadorJugando()

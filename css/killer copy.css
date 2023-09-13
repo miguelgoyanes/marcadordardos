@@ -15,7 +15,7 @@ p {
 
 /* CONTROLES */
 #contenedor-controles {
-    width: 760px;
+    width: 540px;
     margin: 30px auto 0px auto;
     display: flex;
     justify-content: space-around;
@@ -47,14 +47,13 @@ p {
 }
 /* JUGADORES */
 .contenedor-jugadores {
-    width: 760px;
+    width: 540px;
     margin: 30px auto 0px auto;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
 .contenedor-jugador {
-    width: 100px;
     height: 100px;
     border-radius: 15px 15px 0px 0px;
     display: flex;
@@ -66,32 +65,45 @@ p {
 .btn-clickable {
     cursor: pointer;
 }
+.cubo {
+    width: 225px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: var(--azul);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .jugando {
     background-color: var(--oscuro);
 }
 
 /* NUMEROS */
 .contenedor-numeros {
-    width: 760px;
+    width: 540px;
     padding: 20px;
     border-radius: 15px;
     margin: 0px auto 200px auto;
     background-color: var(--oscuro);
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
 }
 .contenedor-numeros div {
     width: 100px;
     height: 100px;
     border-radius: 15px;
-    background-color: var(--verde);
+    background-color: var(--claro);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     user-select: none
 }
+.tecla-verde {
+    background-color: var(--verde);
+}
+
 .ocultar {
     display: none;
 }
@@ -112,20 +124,23 @@ p {
     }
     /* CONTROLES */
     #contenedor-controles {
-        width: 620px;
+        width: 440px;
     }
     /* JUGADORES */
     .contenedor-jugadores {
-        width: 620px;
+        width: 440px;
     }
     .contenedor-jugador {
-        width: 80px;
         height: 80px;
         font-size: 20px;
     }
+    .cubo {
+        width: 185px;
+        height: 50px;
+    }
     /* NUMEROS */
     .contenedor-numeros {
-        width: 620px;
+        width: 440px;
     }
     .contenedor-numeros div {
         width: 80px;
@@ -147,29 +162,24 @@ p {
     }
     .contenido-tablero {
         margin: 0px auto 0px auto;
-        display: grid;
-        grid-template-columns: 80px 290px;
     }
     /* JUGADORES */
     .contenedor-jugadores {
-        grid-row: 1/2;
         margin: 10px auto 0px auto;
-        width: 100%;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, 1fr);
-        
+        width: 370px;
     }
     .contenedor-jugador {
-        width: 80px;
         height: 80px;
-        border-radius: 10px 0px 0px 10px;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .cubo {
+        width: 155px;
     }
     /* NUMEROS */
     .contenedor-numeros {
-        grid-column: 2/3;
-        width: 270px;
-        padding: 10px;
-        grid-template-columns: repeat(3, 1fr);
+        width: 370px;
+        padding: 20px;
+        grid-template-columns: repeat(4, 1fr);
         gap: 10px;
     }
     .contenedor-numeros div {
@@ -184,22 +194,23 @@ p {
     .btn {
         font-size: 22px;
     }
-    /*TABLERO*/
-    .contenido-tablero {
-        grid-template-columns: 70px 250px;
-    }
     /* JUGADORES */
+    .contenedor-jugadores {
+        width: 310px;
+    }
     .contenedor-jugador {
-        width: 70px;
         height: 70px;
-        border-radius: 5px 0px 0px 5px;
+    }
+    .cubo {
+        width: 135px;
     }
     .contenedor-jugador p {
         font-size: 18px;
     }
     /* NUMEROS */
     .contenedor-numeros {
-        width: 230px;
+        width: 310px;
+        padding: 10px;
     }
     .contenedor-numeros div {
         width: 70px;
@@ -208,22 +219,22 @@ p {
 }
 /*movil M*/
 @media(max-width: 375px) {
-    /*TABLERO*/
-    .contenido-tablero {
-        grid-template-columns: 65px 235px;
-    }
     /* JUGADORES */
+    .contenedor-jugadores {
+        width: 290px;
+    }
     .contenedor-jugador {
-        width: 65px;
         height: 65px;
-        border-radius: 5px 0px 0px 5px;
+    }
+    .cubo {
+        width: 125px;
     }
     .contenedor-jugador p {
         font-size: 18px;
     }
     /* NUMEROS */
     .contenedor-numeros {
-        width: 215px;
+        width: 290px;
     }
     .contenedor-numeros div {
         width: 65px;
