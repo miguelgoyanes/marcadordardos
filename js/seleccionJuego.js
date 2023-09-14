@@ -1,143 +1,56 @@
-function existenNombres() {
-    const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
-    if (listaNombres !== null) {
-        listaNombres.forEach(nombre => {
-            let contenedorNom = document.querySelector(".contenedor-nom")
-            //comprobamos numero de hijos
-            if (contenedorNom.childNodes.length < 6) {
-                // creamos un nuevo nombre con btn de eliminas
-                let divNombre = document.createElement("div")
-                divNombre.classList.add("contenido-nom")
-                let btnNombre = document.createElement("button")
-                btnNombre.classList.add("btn-menos", "btn")
-                btnNombre.type = "button"
-                btnNombre.textContent = "-"
-                let imputNombre = document.createElement("input")
-                imputNombre.type = "text"
-                imputNombre.name = "nick"
-                imputNombre.value = nombre
-                imputNombre.classList.add("nombre")
-                divNombre.appendChild(btnNombre)
-                divNombre.appendChild(imputNombre)
-                contenedorNom.appendChild(divNombre)
-            }
-        })
-        //recorremos todos nombres
-        let btnMenos = document.querySelectorAll(".btn-menos")
-        btnMenos.forEach(btn => {
-            btn.addEventListener("click", e => {
-                //haccedemos al padre del btn menos y lo eliminamos
-                e.target.parentNode.remove(e.target.parentNode)
-            })
-        })
+let juegoElegido = null
+
+function siExisteJuegoElegido() {
+    juegoElegido = sessionStorage.getItem('juegoElegido')
+    let casillaJuego = document.getElementById(juegoElegido)
+    if (juegoElegido !== null) {
+        casillaJuego.classList.add("tecla-verde")        
     }
 }
 
-//comprobaciones y eventListener para los botones + - 
-function baseAnadirNombres() {
-    let btnMas = document.getElementById("btn-mas")
-    let contenedorNom = document.querySelector(".contenedor-nom")
 
-    btnMas.addEventListener("click", () => {
-        //comprobamos numero de hijos
-        if (contenedorNom.childNodes.length < 6) {
-            anadirNombre()
-        } else {
-            let error = document.getElementById("error")
-            error.innerText = "Solo puedes introducir 6 jugadores"
-        }
-
-        //recorremos todos nombres
-        let btnMenos = document.querySelectorAll(".btn-menos")
-        btnMenos.forEach(btn => {
-            btn.addEventListener("click", e => {
-                //haccedemos al padre del btn menos y lo eliminamos
-                e.target.parentNode.remove(e.target.parentNode)
+function hacerJuegosClickables() {
+    let juegos = document.querySelectorAll(".juego")
+    juegos.forEach(juego => {
+        juego.addEventListener("click", event => {
+            juegos.forEach(juego => {
+                juego.classList.remove("tecla-verde")
             })
+            
+            let juegoClickado = event.target
+            if (juegoClickado.tagName === "P") {
+                juegoClickado.parentNode.classList.add("tecla-verde")
+                juegoElegido = juegoClickado.parentNode.id
+            }else if (juegoClickado.tagName === "I") {
+                juegoClickado.parentNode.parentNode.classList.add("tecla-verde")
+                juegoElegido = juegoClickado.parentNode.parentNode.id
+            }else {
+                juegoClickado.classList.add("tecla-verde")
+                juegoElegido = juegoClickado.id
+            }
         })
     })
 }
 
-
-//crear todo el elemento nombre y meterlo en el contenedor
-function anadirNombre() {
-    let contenedorNom = document.querySelector(".contenedor-nom")
-
-    // creamos un nuevo nombre con btn de eliminas
-    let divNombre = document.createElement("div")
-    divNombre.classList.add("contenido-nom")
-    let btnNombre = document.createElement("button")
-    btnNombre.classList.add("btn-menos", "btn")
-    btnNombre.type = "button"
-    btnNombre.textContent = "-"
-    let imputNombre = document.createElement("input")
-    imputNombre.type = "text"
-    imputNombre.name = "nick"
-    imputNombre.classList.add("nombre")
-    divNombre.appendChild(btnNombre)
-    divNombre.appendChild(imputNombre)
-    contenedorNom.appendChild(divNombre)
-
-}
-//Subir los dados del usuario al sessionStorage
-function datosUsuario(listaNombres, juego01) {
-    // al subirlo como array el storage lo convierte a str
-    // asi que vamos a subirlo con un json
-    sessionStorage.setItem('listaNombres', JSON.stringify(listaNombres));
-    sessionStorage.setItem('juego_01', juego01)
+function hacerSigClickable() {
+    let btnSigiente = document.getElementById("ir-seleccionar-nombres")
+    btnSigiente.addEventListener("click", clickEnSig)
 }
 
-//Comprobar formulario
-function comprobarForm(event) {
-    let listaNombres = new Array
-    let contenedorNom = document.querySelector(".contenedor-nom")
-    let nombres = document.querySelectorAll(".nombre")
-    let error = document.getElementById("error")
-    if (contenedorNom.childNodes.length < 1) {
-        event.preventDefault()
-        error.innerText = "Debe introducir por lo mejos un jugador"
-        return false
-    } else {
-        nombres.forEach(nombre => {
-            if (nombre.value.length === 0 || nombre.value.length > 7) {
-                nombre.focus()
-                event.preventDefault()
-                error.innerText = "Los nombres deben tener más de 0 caracteres y menor de 7"
-                return false
-            } else {
-                listaNombres.push(nombre.value)
-            }
-        })
-    }
-    let modalidadJuego = document.getElementById("modalidad-juego")
-    if(modalidadJuego.value === "0"){
-        event.preventDefault();
-        error.innerText="Debe seleccionar una modalida de juego"
-        return false;
-    } else if (modalidadJuego.value === "cricket") {
-        datosUsuario(listaNombres)
-        let formJuego = document.getElementById("formJuego")
-        formJuego.action = "cricket.html"
-        return true
-    } else if (modalidadJuego.value === "301" || modalidadJuego.value === "501" || modalidadJuego.value === "701") {
-        datosUsuario(listaNombres, modalidadJuego.value)
-        let formJuego = document.getElementById("formJuego")
-        formJuego.action = "juego_01.html"
-        return true
+function clickEnSig() {
+    console.log("hola");
+    if (juegoElegido !== null) {
+        // subir juego
+        sessionStorage.setItem("juegoElegido", juegoElegido)
+        // cambiar a pagina nombres
+        window.location.href = "seleccionNombres.html";
     }
 }
-
 
 function domCargado(){
-    //comprobar si existe lista nombres
-    existenNombres()
-    //captura todos los elementos
-    baseAnadirNombres()
-    
-    //comprobar formulario
-    let formJuego = document.getElementById("formJuego")
-    formJuego.addEventListener("submit", comprobarForm)
-
+    siExisteJuegoElegido()
+    hacerJuegosClickables()
+    hacerSigClickable()
 }
 
 //Inicio de carga evento

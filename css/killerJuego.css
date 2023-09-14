@@ -16,7 +16,7 @@ p {
 /* CONTROLES */
 #contenedor-controles {
     width: 540px;
-    margin: 30px auto 0px auto;
+    margin: 30px auto 30px auto;
     display: flex;
     justify-content: space-around;
 }
@@ -121,7 +121,7 @@ p {
     /* CONTROLES */
     #contenedor-controles {
         width: 80%;
-        margin: 10px auto 0px auto;
+        margin: 10px auto 10px auto;
         gap: 20px;
     }
     /*TABLERO*/

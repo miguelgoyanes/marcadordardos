@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/900749817b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/seleccionJuego.css">
+    <link rel="stylesheet" href="css/seleccionNombres.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="shortcut icon" href="./img/icono.png">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6771001977419022"
@@ -22,35 +22,18 @@
     </nav>
     <!-- CONTENIDO -->
     <main>
+        <button id="btn-cambiar-juego" class="btn" type="button">Cambiar Juego</button>
         <div id="error"></div>
-        <div><p>Selecciona Un Juego</p></div>
-        <div class="contenedor-juegos">
-            <div id="cricket" class="juego">
-                <p>CRICKET</p>
-                <p><i class="fa-solid fa-person"></i> 2-6</p>
+        <form action="#" id="formJuego">
+            <div class="item-form nombres">
+                <label for="nick">Introduce los jugadores</label>
+                <button id="btn-mas" class="btn" type="button">+</button>
+                <div class="contenedor-nom"></div>
             </div>
-            <div id="killer" class="juego">
-                <p>KILLER</p>
-                <p><i class="fa-solid fa-person"></i> 2-11</p>
-            </div>
-            <div id="301" class="juego">
-                <p>301</p>
-                <p><i class="fa-solid fa-person"></i> 2-6</p>
-            </div>
-            <div id="501" class="juego">
-                <p>501</p>
-                <p><i class="fa-solid fa-person"></i> 2-6</p>
-            </div>
-            <div id="701" class="juego">
-                <p>701</p>
-                <p><i class="fa-solid fa-person"></i> 2-6</p>
-            </div>
-        </div>
-        <div class="contenedor-btn">
-            <button id="ir-seleccionar-nombres" class="btn">SIGUIENTE</button>
-        </div>
+            <input type="submit" name="submit" id="submit" class="btn" value="Jugar">
+        </form>
     </main>  
 </body>
-<script src="./js/seleccionJuego.js"></script>
+<script src="./js/seleccionNombres.js"></script>
 <script src="./js/nav.js"></script>
 </html>

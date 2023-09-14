@@ -1,8 +1,7 @@
 let listaHistorial = []
 let objJugadores = {}
 let listaIdsJugadoresVivos = []
-// const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
-const listaNombres = ["Ana", "Miguel", "Javier", "Miguel", "Javier"]
+const listaNombres = JSON.parse(sessionStorage.getItem('listaNombres'))
 
 // CREAMOS EL OBJETO
 function establecerObj() {
