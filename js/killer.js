@@ -251,6 +251,10 @@ function hacerBtnClickable() {
     // hacer click en deshacer
     let btnDeshacer = document.getElementById("deshacer")
     btnDeshacer.addEventListener("click", deshacerAccion)
+
+    // hacer click en informacion
+    let btnInformacion = document.getElementById("informacion")
+    btnInformacion.addEventListener("click", typsJuego)
 }
 
 // ELIMINAMOS EL CLICK DE TODOS LO CLICKABLE
@@ -272,6 +276,10 @@ function eliminarTodosClickablesJ() {
     // eliminar click en deshacer
     let btnDeshacer = document.getElementById("deshacer")
     btnDeshacer.removeEventListener("click", deshacerAccion)
+
+    // eliminar click en informacion
+    let btnInformacion = document.getElementById("informacion")
+    btnInformacion.removeEventListener("click", typsJuego)
 }
 
 // GESTIONAMOS EL CLICK EN LOS JUGADORES
@@ -324,6 +332,43 @@ function clickSiguienteJugador() {
     guardarHistorias()
 }
 
+// ENSEÑAR TYPS PARA LOS JUGADORES PERDODOS EN EL JUEGO
+function typsJuego() {
+    let modal = document.getElementById('modal');
+    let cerrar = document.getElementById('cerrar');
+    
+    modal.style.display = 'block';
+    
+    cerrar.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    //contenido del mensaje
+    let contenidoMensaje = ""
+    for (let keyJugadores in objJugadores) {
+        if (objJugadores[keyJugadores].jugando) {
+            // si no es killer
+            if (!objJugadores[keyJugadores].killer) {
+                contenidoMensaje = `<p>${objJugadores[keyJugadores].nombre} aun no eres "Killer", por ello lo primero 
+                que tienes que hacer es darle a tu numero "${objJugadores[keyJugadores].numero}" en el anillo exterior (seccion de doble puntos)</p>`
+            }else {
+                contenidoMensaje = `<p>${objJugadores[keyJugadores].nombre} eres "Killer", ahora ya puedes empezar a eliminar a tus rivales, 
+                dale a su numero en el anillo exterior quitandole asi una vida.</p>
+                <p>Y recuerda por cada enemigo que elimines te corresponde una vida extra.</p>
+                <p>ELIMINALOS A TODOS!!</p>`
+            }
+        }
+    }
+    let contenedorTexto = document.querySelector(".contenedor-texto")
+    contenedorTexto.innerHTML = contenidoMensaje
+}
+
 // COMPROBAMOS SI EL JUGADOR JUGANDO HA GANADO
 function comprobarGanador(idJugadorClickado) {
     let numeroJugadoresVivos = 0
@@ -360,6 +405,15 @@ function comprobarmuerto(idJugadorClickado) {
 
 // PINTAR TABLERO SI HA GANADO
 function pintartableroGanar(idJugadorJugando) {
+    // eliminar clicables
+    eliminarTodosClickablesJ()
+    // mostrar botones control
+    let controles = document.querySelectorAll(".btn")
+    controles.forEach(element => {
+        element.classList.add("ocultar")
+    })
+    
+    //contenido
     let contNumeros = document.querySelector(".contenedor-numeros")
     // casillas jugadores
     let contenidoJugadores = ``
@@ -374,15 +428,11 @@ function pintartableroGanar(idJugadorJugando) {
     </div>`
     contNumeros.innerHTML = contenidoJugadores
     
-    // mostrar botones control
-    let controles = document.querySelectorAll(".btn")
-    controles.forEach(element => {
-        element.classList.add("ocultar")
-    })
     // estilo
     contNumeros.style.gridTemplateColumns = ` 1fr`
     let jugadorGanador = document.querySelector(".jugador-ganador")
     jugadorGanador.style.height = " auto"
+    
 }
 
 //GUARDAMOS EN HISTORIAL

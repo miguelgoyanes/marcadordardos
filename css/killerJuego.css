@@ -20,13 +20,14 @@ p {
     display: flex;
     justify-content: space-around;
 }
-.btn {
+.btn-verde {
     font-weight: 600;
     font-size: 28px;
     background-color: var(--verde);
     color: var(--blanco);
     height: 50px;
     width: 200px;
+    padding: 0px 5px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -36,6 +37,17 @@ p {
 }
 #sig img {
     width: 70px;
+    user-select: none
+}
+#informacion {
+    font-weight: 600;
+    font-size: 36px;
+    height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     user-select: none
 }
 /* GANAR */

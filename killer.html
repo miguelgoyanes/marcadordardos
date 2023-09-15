@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link id="linkCSS" rel="stylesheet" href="css/killerElecNum.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/ventanaInformacion.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="shortcut icon" href="./img/icono.png">
     <title>Marcador de Dardos Online</title>
@@ -22,8 +23,17 @@
     <!-- CONTENIDO -->
     <main id="contenedor-tab-controles">
         <div id="contenedor-controles">
-            <div id="deshacer" class="btn ocultar">DESHACER</div>
-            <div id="sig" class="btn ocultar"><img src="./img/flecha.png" alt="flecha dardo"></div>
+            <div id="deshacer" class="btn btn-verde ocultar">DESHACER</div>
+            <div id="informacion" class="btn ocultar"><i class="fa-solid fa-circle-info btn"></i></div>
+            <div id="sig" class="btn btn-verde ocultar"><img src="./img/flecha.png" alt="flecha dardo"></div>
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" id="cerrar">&times;</span>
+                <div class="contenedor-texto">
+                    <p>¡Aquí va tu información!</p>
+                </div>
+            </div>
         </div>
         <div id="contenedor-tablero">
             <div class="contenido-tablero">
