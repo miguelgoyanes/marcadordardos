@@ -14,10 +14,11 @@ const importarNavegador = () => {
                     <a class="element-menu-desplegable" href="#">Como jugar <i
                             class="fa-solid fa-angle-down fa-xs"></i></a>
                     <ul class="menu-vertical">
-                        <li><a class="element-menu" href="comoJugarCricket.html">Cricket</a></li>
                         <li><a class="element-menu" href="comoJugar301.html">301</a></li>
                         <li><a class="element-menu" href="comoJugar501.html">501</a></li>
                         <li><a class="element-menu" href="comoJugar701.html">701</a></li>
+                        <li><a class="element-menu" href="comoJugarCricket.html">Cricket</a></li>
+                        <li><a class="element-menu" href="comoJugarKiller.html">Killer</a></li>
                     </ul>
                 </li>
                 <li>

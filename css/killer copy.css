@@ -1,0 +1,243 @@
+
+body{
+    /* background-color: var(--oscuro); */
+    background-image: url("../img/fondo-dardos-simetrico-1440.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+}
+p {
+    margin: 0;
+}
+
+/* CONTROLES */
+#contenedor-controles {
+    width: 540px;
+    margin: 30px auto 0px auto;
+    display: flex;
+    justify-content: space-around;
+}
+.btn {
+    font-weight: 600;
+    font-size: 28px;
+    background-color: var(--verde);
+    color: var(--blanco);
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none
+}
+#sig img {
+    width: 70px;
+    user-select: none
+}
+/* GANAR */
+#contenedor-ganar {
+    margin: 30px auto 0px auto;
+    text-align: center;
+    font-weight: 400;
+    color: var(--rojo);
+}
+/* JUGADORES */
+.contenedor-jugadores {
+    width: 540px;
+    margin: 30px auto 0px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.contenedor-jugador {
+    height: 100px;
+    border-radius: 15px 15px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.btn-clickable {
+    cursor: pointer;
+}
+.cubo {
+    width: 225px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: var(--azul);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jugando {
+    background-color: var(--oscuro);
+}
+
+/* NUMEROS */
+.contenedor-numeros {
+    width: 540px;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 0px auto 200px auto;
+    background-color: var(--oscuro);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+.contenedor-numeros div {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: var(--claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none
+}
+.tecla-verde {
+    background-color: var(--verde);
+}
+
+.ocultar {
+    display: none;
+}
+
+
+/*PC mediano*/
+@media(max-width: 1440px) {
+    body {
+        background-image: url("../img/fondo-dardos-simetrico-1024.jpg");
+    }
+}
+
+/*PC pequeño*/
+@media(max-width: 1024px) {
+    body {
+        background-image: none;
+        background-color: var(--claro);
+    }
+    /* CONTROLES */
+    #contenedor-controles {
+        width: 440px;
+    }
+    /* JUGADORES */
+    .contenedor-jugadores {
+        width: 440px;
+    }
+    .contenedor-jugador {
+        height: 80px;
+        font-size: 20px;
+    }
+    .cubo {
+        width: 185px;
+        height: 50px;
+    }
+    /* NUMEROS */
+    .contenedor-numeros {
+        width: 440px;
+    }
+    .contenedor-numeros div {
+        width: 80px;
+        height: 80px;
+    }
+}
+/*tablet*/
+@media(max-width: 768px) {
+    /* CONTROLES */
+    #contenedor-controles {
+        width: 90%;
+        margin: 10px auto 0px auto;
+        gap: 20px;
+    }
+    /*TABLERO*/
+    #contenedor-tablero {
+        display: flex;
+        justify-content: center;
+    }
+    .contenido-tablero {
+        margin: 0px auto 0px auto;
+    }
+    /* JUGADORES */
+    .contenedor-jugadores {
+        margin: 10px auto 0px auto;
+        width: 370px;
+    }
+    .contenedor-jugador {
+        height: 80px;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .cubo {
+        width: 155px;
+    }
+    /* NUMEROS */
+    .contenedor-numeros {
+        width: 370px;
+        padding: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    .contenedor-numeros div {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+    }
+}
+/*movil L*/
+@media(max-width: 425px) {
+    /* CONTROLES */
+    .btn {
+        font-size: 22px;
+    }
+    /* JUGADORES */
+    .contenedor-jugadores {
+        width: 310px;
+    }
+    .contenedor-jugador {
+        height: 70px;
+    }
+    .cubo {
+        width: 135px;
+    }
+    .contenedor-jugador p {
+        font-size: 18px;
+    }
+    /* NUMEROS */
+    .contenedor-numeros {
+        width: 310px;
+        padding: 10px;
+    }
+    .contenedor-numeros div {
+        width: 70px;
+        height: 70px;
+    }
+}
+/*movil M*/
+@media(max-width: 375px) {
+    /* JUGADORES */
+    .contenedor-jugadores {
+        width: 290px;
+    }
+    .contenedor-jugador {
+        height: 65px;
+    }
+    .cubo {
+        width: 125px;
+    }
+    .contenedor-jugador p {
+        font-size: 18px;
+    }
+    /* NUMEROS */
+    .contenedor-numeros {
+        width: 290px;
+    }
+    .contenedor-numeros div {
+        width: 65px;
+        height: 65px;
+    }
+}

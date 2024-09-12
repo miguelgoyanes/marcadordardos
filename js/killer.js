@@ -296,7 +296,8 @@ function clickEnJugador(element) {
 
     objJugadores[idJugadorClickado].vidas -= 1
 
-    comprobarGanador(idJugadorClickado)
+    comprobarmuerto(idJugadorClickado)
+    comprobarGanador()
     guardarHistorias()
 }
 
@@ -370,7 +371,7 @@ function typsJuego() {
 }
 
 // COMPROBAMOS SI EL JUGADOR JUGANDO HA GANADO
-function comprobarGanador(idJugadorClickado) {
+function comprobarGanador() {
     let numeroJugadoresVivos = 0
     let idJugadorJugando = 0
     for (let keyJugadores in objJugadores) {
@@ -384,7 +385,6 @@ function comprobarGanador(idJugadorClickado) {
     if (numeroJugadoresVivos === 1) {
         pintartableroGanar(idJugadorJugando)
     }else {
-        comprobarmuerto(idJugadorClickado)
         actualizarTableroJ()
     }
 }
